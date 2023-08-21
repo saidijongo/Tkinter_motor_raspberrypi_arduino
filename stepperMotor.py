@@ -102,11 +102,11 @@ def update_current_angle(angle):
 button_frame = tk.Frame(window)
 button_frame.pack()
 
-buttons = [tk.Button(button_frame, text=str(i), command=lambda i=i: button_clicked(i, True)) for i in [0, 45, 90, 135, 180, 225, 270, 315, 360]]
-#buttons = [tk.Button(button_frame, text=str(i), command=lambda i=i: update_current_angle(i)) for i in [0, 45, 90, 135, 180, 225, 270, 315, 360]]
+buttons = [tk.Button(button_frame, text=str(i), command=lambda i=i: button_clicked(i, True)) for i in [0,30,45,60,75, 90,105,120, 135,150,165, 180]]
+
 # Position the buttons in a 3x3 grid
 for i, button in enumerate(buttons):
-    button.grid(row=i//3, column=i%3, padx=5, pady=5)
+    button.grid(row=i//3, column=i%3, pady=5)
 
 # Create the clockwise and counterclockwise buttons
 toggle_frame = tk.Frame(window)
