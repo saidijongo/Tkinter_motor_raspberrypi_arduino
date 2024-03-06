@@ -1,0 +1,29 @@
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BCM)
+
+gpio_pins = [pin for pin in range(2, 28)]
+
+for pin in gpio_pins:
+    GPIO.setup(pin, GPIO.OUT)
+
+try:
+    for _ in range(10):
+        #LEDs ON
+        for pin in gpio_pins:
+            GPIO.output(pin, GPIO.HIGH)
+        time.sleep(1)
+        
+        #LEDs OFF
+        for pin in gpio_pins:
+            GPIO.output(pin, GPIO.LOW)
+        time.sleep(1)
+        
+    time.sleep(60)
+
+except KeyboardInterrupt:
+    GPIO.cleanup()
+
+finally:
+    GPIO.cleanup()
